@@ -176,19 +176,19 @@ public:
     public:
         virtual ~handler_interface() {}
         
-        virtual void on_handshake_init(connection_ptr con) {}
+        virtual void on_handshake_init(connection_ptr /*con*/) {}
         
-        virtual void validate(connection_ptr con) {}
-        virtual void on_open(connection_ptr con) {}
-        virtual void on_close(connection_ptr con) {}
-        virtual void on_fail(connection_ptr con) {}
+        virtual void validate(connection_ptr /*con*/) {}
+        virtual void on_open(connection_ptr /*con*/) {}
+        virtual void on_close(connection_ptr /*con*/) {}
+        virtual void on_fail(connection_ptr /*con*/) {}
         
-        virtual void on_message(connection_ptr con,message::data_ptr) {}
+        virtual void on_message(connection_ptr /*con*/,message::data_ptr) {}
         
-        virtual bool on_ping(connection_ptr con,std::string) {return true;}
-        virtual void on_pong(connection_ptr con,std::string) {}
-        virtual void on_pong_timeout(connection_ptr con,std::string) {}
-        virtual void http(connection_ptr con) {}
+        virtual bool on_ping(connection_ptr /*con*/,std::string) {return true;}
+        virtual void on_pong(connection_ptr /*con*/,std::string) {}
+        virtual void on_pong_timeout(connection_ptr /*con*/,std::string) {}
+        virtual void http(connection_ptr /*con*/) {}
     };
     
     server(boost::asio::io_service& m) 

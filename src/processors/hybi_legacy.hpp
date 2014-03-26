@@ -229,7 +229,7 @@ public:
     
     // TODO: to factor away
     binary_string_ptr prepare_frame(frame::opcode::value opcode,
-                                    bool mask,
+                                    bool /*mask*/,
                                     const binary_string& payload)  {
         if (opcode != frame::opcode::TEXT) {
             // TODO: hybi_legacy doesn't allow non-text frames.
@@ -250,7 +250,7 @@ public:
     }
     
     binary_string_ptr prepare_frame(frame::opcode::value opcode,
-                                    bool mask,
+                                    bool /*mask*/,
                                     const utf8_string& payload)  {
         if (opcode != frame::opcode::TEXT) {
             // TODO: hybi_legacy doesn't allow non-text frames.
@@ -270,9 +270,9 @@ public:
         return response;
     }
     
-    binary_string_ptr prepare_close_frame(close::status::value code,
-                                          bool mask,
-                                          const std::string& reason) {
+    binary_string_ptr prepare_close_frame(close::status::value /*code*/,
+                                          bool /*mask*/,
+                                          const std::string& /*reason*/) {
         binary_string_ptr response(new binary_string(2));
         
         (*response)[0] = 0xFF;

@@ -190,17 +190,17 @@ public:
     	virtual ~handler_interface() {}
     	
         // Required
-        virtual void on_open(connection_ptr con) {}
-        virtual void on_close(connection_ptr con) {}
-        virtual void on_fail(connection_ptr con) {}
+        virtual void on_open(connection_ptr /*con*/) {}
+        virtual void on_close(connection_ptr /*con*/) {}
+        virtual void on_fail(connection_ptr /*con*/) {}
         
-        virtual void on_message(connection_ptr con,message::data_ptr) {}
+        virtual void on_message(connection_ptr /*con*/,message::data_ptr) {}
         
         // Optional
-        virtual void on_handshake_init(connection_ptr con) {}
-        virtual bool on_ping(connection_ptr con,std::string) {return true;}
-        virtual void on_pong(connection_ptr con,std::string) {}
-        virtual void on_pong_timeout(connection_ptr con,std::string) {}
+        virtual void on_handshake_init(connection_ptr /*con*/) {}
+        virtual bool on_ping(connection_ptr /*con*/,std::string) {return true;}
+        virtual void on_pong(connection_ptr /*con*/,std::string) {}
+        virtual void on_pong_timeout(connection_ptr /*con*/,std::string) {}
         
     };
     
@@ -577,7 +577,7 @@ void client<endpoint>::connection<connection_type>::read_response() {
 template <class endpoint>
 template <class connection_type>
 void client<endpoint>::connection<connection_type>::handle_read_response (
-        const boost::system::error_code& error, std::size_t bytes_transferred)
+        const boost::system::error_code& error, std::size_t /*bytes_transferred*/)
 {
     boost::lock_guard<boost::recursive_mutex> lock(m_connection.m_lock);
     

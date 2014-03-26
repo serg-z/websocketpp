@@ -589,14 +589,14 @@ struct endpoint_traits< endpoint<role, socket, logger> > {
          * @param connection A shared pointer to the connection that was transferred
          * @param old_handler A shared pointer to the previous handler
          */
-        virtual void on_load(connection_ptr con, handler_ptr old_handler) {}
+        virtual void on_load(connection_ptr /*con*/, handler_ptr /*old_handler*/) {}
         /// on_unload is the last callback called for a handler before control
         /// of a connection is handed over to a new handler mid flight.
         /**
          * @param connection A shared pointer to the connection being transferred
          * @param old_handler A shared pointer to the new handler
          */
-        virtual void on_unload(connection_ptr con, handler_ptr new_handler) {}
+        virtual void on_unload(connection_ptr /*con*/, handler_ptr /*new_handler*/) {}
     };
     
 };
